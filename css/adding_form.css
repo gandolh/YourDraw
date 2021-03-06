@@ -1,0 +1,76 @@
+a {
+	text-decoration: none;
+}
+
+.container {
+	margin-top: 50px;
+	display: grid;
+	grid-template-columns: 1fr 3fr 1fr;
+	grid-template-rows: calc(100vh - 50px);
+	justify-items: center;
+	align-items: center;
+}
+
+.motto {
+	color: #43DDE6;
+}
+
+#post {
+	background-color: #FC5185;
+	color: #F0F0F0;
+	border: 0px;
+	font-size: 1.5em;
+	padding: 25px;
+	border-radius: 15px
+}
+
+#adding_to_db {
+	width: 100%;
+	height: calc(100% - 140px);
+	border-radius: 30px;
+	border: none;
+	margin: 70px 0px;
+	background: linear-gradient(130deg,
+		rgba(67,221,230, 0.5),
+		rgba(67,221,230, 0) 50%,
+		rgba(240,240,240,0) 50%,
+		rgba(240,240,240,0.5)
+		);
+	display:grid;
+	grid-template-columns: 1fr 1fr
+	
+  }
+.form_data{
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	font-size: 27px;
+	color: #f0f0f0;
+}
+.form_data label {
+	margin-top: 0.25rem;
+}
+.form_data input{
+ margin-top: 1rem;
+ width: 300px;
+ height: 25px;
+}
+.form_data textarea{
+	margin-top: 0.25rem;
+}
+#sketch-holder{
+	display: block;
+	width: 250px;
+	height:  250px;
+	background-color: rgba(255,255,255,0.2);
+	margin: auto;
+	border: none;
+}
+
+/*
+palette:
+#F0F0F0		grey
+#43DDE6		tuqroize
+#364F6B		blue
+#FC5185		red
+*/

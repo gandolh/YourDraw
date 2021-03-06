@@ -1,0 +1,38 @@
+a {
+	text-decoration: none;
+}
+canvas{
+	display: block;
+}
+.container{
+	margin-top: 50px;
+	display: grid;
+	grid-template-columns: 1fr 3fr 1fr;
+	grid-template-rows: calc(100vh - 50px);
+	justify-items: center;
+	align-items: center;
+}	
+
+.motto{
+	color: #43DDE6;
+}
+.go_next{
+	background-color: #FC5185;
+	color:#F0F0F0 ;
+	border: 0px;
+	font-size: 1.5em;
+	padding: 25px;
+	border-radius: 15px
+}
+#sketch-holder{
+	width: 100%;
+	height: 100%;
+	
+}
+/*
+palette:
+#F0F0F0		grey
+#43DDE6		tuqroize
+#364F6B		blue
+#FC5185		red
+*/

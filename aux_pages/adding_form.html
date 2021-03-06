@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Create your work</title>
+		<link rel="stylesheet" type="text/css" href="../css/navbar.css">
+		<link rel="stylesheet" type="text/css" href="../css/adding_form.css">
+	</head>
+	<body>
+		<nav class="navbar">
+			<a href="#">
+				<img src="../imgs/icon.png" >
+			</a>
+			<div class="to-the-right">
+				<a class="nav-link" href="../index.html">Home</a>
+				<a class="nav-link">Most voted</a>
+				<a class="nav-link">My favourites</a>
+			</div>
+		</nav>
+		<div class="container">
+			<h1 class="motto">Draw<br>
+			something<br>
+			cool!</h1>
+			<form id="adding_to_db">
+				<div class="form_data">
+					<label>Nume opera:</label>
+					<input type="text" placeholder="Nume opera" id='draw_name'>
+					<label>Descriere:</label>
+					<textarea placeholder="Descriere" id='draw_description' rows="4"></textarea>
+				</div>
+				<iframe id="sketch-holder"></iframe>
+			</form>
+			<button id="post" type="submit">Post your <br> Work</button>
+		</div>
+		<script src="../js/p5.min.js"></script>
+		<script src="../js/adding_form.js"></script>
+		<script>
+			document.getElementById('sketch-holder').src='preview.html'+window.location.search
+		</script>
+		<script src="../js/submit_form.js"></script>
+	</body>
+</html>
