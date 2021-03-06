@@ -32,6 +32,7 @@
                 // console.log(InstructionList)
                 canvas = createCanvas(good_width, good_height);
                 canvas.parent('sketch-holder')
+                background(51)
                 noFill()
                 stroke(255,255,255)
                 let resizeCanvasContent=2.5;
