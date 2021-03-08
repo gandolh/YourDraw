@@ -10,7 +10,8 @@ fetch('http://127.0.0.1:5000/numbersOfDraw', {
         cache: 'default',
     }).then(response => response.json())
     .then(data => {
-        for (let i = 1; i <= Math.min(6,data.numberOfDraws); i++) {
+        // for (let i = 1; i <= Math.min(6,data.numberOfDraws); i++) {
+        for (let i = 1; i <= data.numberOfDraws; i++) {
         	fetch('http://127.0.0.1:5000/getFromDatabase',{
                 method: 'POST',
                 headers: {
@@ -40,5 +41,5 @@ fetch('http://127.0.0.1:5000/numbersOfDraw', {
             })
 
         }
-
+        // random_galery.style.gridTemplateColumns='repeat(auto-fit, minmax(250px, 1fr))'
     })

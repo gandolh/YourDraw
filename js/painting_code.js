@@ -42,6 +42,16 @@ function draw() {
 
 }
 
+function windowResized() {
+    let parent_div = document.getElementById('sketch-holder');
+    let good_width = parent_div.clientWidth;
+    let good_height = parent_div.clientHeight;
+    let resized = createGraphics(good_width, good_height)
+    resized.image(canvas, 0, 0, good_width, good_height)
+    resizeCanvas(good_width, good_height);
+    image(resized,0,0)
+}
+
 function valid() {
     let ilen = instructions.length;
     return (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) &&
@@ -57,7 +67,7 @@ function saveImage(event) {
     data_json = {
         'instructions': ins_json,
         'width': width,
-        'height':height
+        'height': height
     }
     data_json = JSON.stringify(data_json)
     fetch('http://127.0.0.1:5000/saveImageForForm', {

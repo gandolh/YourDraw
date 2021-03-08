@@ -9,8 +9,9 @@ a{
 .random_galery{
 	margin-top: 80px;
 	display: grid;
-	grid-template-columns: repeat(5,1fr);
+		grid-template-columns: repeat(5,1fr);
 	gap: 35px; 
+	row-gap: 70px;
 
 }
 
@@ -22,10 +23,10 @@ a{
 
 
 .card-body{
-	max-height: 100px;
+	height: 100px;
 	width: 220px;
 	padding: 15px;
-	overflow: auto;
+	overflow: hidden;
 	color:#364F6B;
 	background-color:#43DDE6 ;
 	margin-top: -0.25em;
@@ -81,11 +82,26 @@ palette:
 #FC5185		red
 */
 
-
-
-
-
-
+@media (max-width: 1450px) {
+  .random_galery {
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+@media(max-width: 850px){
+	.random_galery{
+		grid-template-columns: 1fr 1fr
+	}
+}
+@media(max-width: 450px){
+	.random_galery{
+		grid-template-columns: 1fr 
+	}
+	.load_more{
+		width: 250px;
+		height: 60px;
+		font-size: 1.25em;
+	}
+}
 
 
 

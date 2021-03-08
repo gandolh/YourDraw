@@ -1,0 +1,18 @@
+cate 10 elemente per loading - main page
+imaginile salvate intr-un database si adaugate prin +
+card in loc de buton pt ancora like buton si like countdown + inima pt adaugare la favorite
+most voted- interogare baza de date si sortare dupa numarul de voturi
+cards - w: 250px h:250px
+
+
+modal, spiners , cards
+
+
+short description- daca depaseste un numar de caractere adauga buton de read more
+
+glass effect la butoane pe home
+
+
+random motivational message din 5 in 5 secunde la pagina de drawing
+
+sa si stergi trans-urile din saveImage
