@@ -1,0 +1,60 @@
+a {
+	text-decoration: none;
+}
+canvas{
+	display: block;
+}
+.container{
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: calc(100vh - 50px);
+}	
+.container > *{
+	margin:0px 20px;
+}
+.motto{
+	color: #43DDE6;
+	width: 150px;
+}
+.go_next{
+	background-color: #FC5185;
+	color:#F0F0F0 ;
+	border: 0px;
+	font-size: 1.5em;
+	padding: 25px;
+	border-radius: 15px;
+	width: 150px;
+}
+#sketch-holder{
+	width: calc(100vw - 300px);
+	height: 100%;
+}
+
+@media (max-width: 1000px){
+	.container{
+		flex-direction: column;
+	}
+	.container > *{
+		margin: 20px 0px;
+		
+	}
+		#sketch-holder{
+		width: calc(100vw - 150px);
+		height: 100%;
+	}
+}
+@media (max-width: 450px){
+	#sketch-holder{
+		width: calc(100vw - 50px);
+		height: 100%;
+	}
+}
+/*
+palette:
+#F0F0F0		grey
+#43DDE6		tuqroize
+#364F6B		blue
+#FC5185		red
+*/

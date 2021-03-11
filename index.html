@@ -4,14 +4,14 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Your drawings</title>
-		<link rel="icon" type="image/gif" href="imgs/icon.png">
-		<link rel="stylesheet" type="text/css" href="css/navbar.css">
-		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="icon" type="image/gif" href="{{ url_for('static', filename='imgs/icon.png') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
 	</head>
 	<body>
 		<nav class="navbar">
 			<a href="#">
-				<img src="imgs/icon.png" >
+				<img src="{{ url_for('static', filename='imgs/icon.png') }}" >
 			</a>
 			<div class="to-the-right">
 				<a class="nav-link active" href="#">Home</a>
@@ -22,8 +22,8 @@
 		<div class="centered">
 			<div class="random_galery">
 				<div class="add_post">
-					<a href="aux_pages/create.html"> 
-						<img  src="imgs/add_post.png">
+					<a href="{{url_for('static', filename='aux_pages/create.html')}}">
+						<img  src="{{url_for('static', filename='imgs/add_post.png')}}">
 						<p>Add a post</p>
 					</a>
 				</div>
@@ -33,5 +33,5 @@
 			<button class="load_more">Load more</button>
 		</div>
 	</body>
-	<script src="js/index.js"></script>
+	<script src="{{url_for('static', filename='js/index.js')}}"></script>
 </html>

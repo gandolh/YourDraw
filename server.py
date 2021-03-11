@@ -1,7 +1,7 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import json
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='.')
 
 
 @app.after_request
@@ -13,6 +13,9 @@ def after_request(response):
                          'GET,PUT,POST,DELETE,OPTIONS')
     return response
 
+@app.route('/',methods=['GET','POST'])
+def hi():
+	return render_template('index.html')
 
 def get_last_id(filename):
     with open(filename, 'r') as fl:
@@ -25,9 +28,9 @@ def get_last_id(filename):
 
 
 def add_to_temp_img(info):
-    with open('database/saveImageForForm.txt', 'a+') as fl:
+    with open('/home/gandolh/YourDraw/database/saveImageForForm.txt', 'a+') as fl:
         fl.write('{};{};{};{}\n'.format(
-            get_last_id('database/saveImageForForm.txt'),
+            get_last_id('/home/gandolh/YourDraw/database/saveImageForForm.txt'),
             info['instructions'],
             info['width'],
             info['height']
@@ -75,27 +78,32 @@ def getDataFromDatabase(filename, id):
     }
 
 def add_to_db(data):
-    with open('database/post_db.txt','a+') as fl:
-        fl.write('{};{};{};{};{};{}'.format( 
+    with open('/home/gandolh/YourDraw/database/post_db.txt','a+') as fl:
+        fl.write('{};{};{};{};{};{}'.format(
         #without enter cause height has \n from temp save
-            get_last_id('database/post_db.txt'),
+            get_last_id('/home/gandolh/YourDraw/database/post_db.txt'),
             data['draw_name'],
             data['draw_description'],
             data['instructions'],
             data['width'],
             data['height']
             ))
+
+
+
 @app.route('/saveImageForForm', methods=['POST'])
 def hello():
+
     info = request.get_json()
+    return {'1':info}
     add_to_temp_img(info)
     return {'Succes': 'yes'}
 
 
 @app.route('/getLastId', methods=['GET'])
-def getLastIdF():
+def getLastId():
     return{
-        'id': get_last_id('database/saveImageForForm.txt')
+        'id': get_last_id('/home/gandolh/YourDraw/database/saveImageForForm.txt')
     }
 
 
@@ -103,7 +111,7 @@ def getLastIdF():
 def getInstructions():
     info = request.get_json()
     returning_data= \
-    getPreviewDataWithId('database/saveImageForForm.txt', info)
+    getPreviewDataWithId('/home/gandolh/YourDraw/database/saveImageForForm.txt', info)
     return returning_data;
 
 @app.route('/save_data_to_db', methods=['POST'])
@@ -117,13 +125,13 @@ def save_data_to_db():
 def delete_temp_save():
     id=request.get_json();
     data='';
-    with open('database/saveImageForForm.txt','r') as fl:
+    with open('/home/gandolh/YourDraw/database/saveImageForForm.txt','r') as fl:
         line=fl.readline()
         while line:
             if line.split(';')[0]!=id:
                 data+=line;
             line=fl.readline()
-    with open('database/saveImageForForm.txt', 'w') as fl:
+    with open('/home/gandolh/YourDraw/database/saveImageForForm.txt', 'w') as fl:
         fl.write(data)
     return {
     'Succes': data
@@ -135,14 +143,15 @@ def getFromDatabase():
     info = request.get_json()
     info=str(info)
     returning_data= \
-    getDataFromDatabase('database/post_db.txt', info)
+    getDataFromDatabase('/home/gandolh/YourDraw/database/post_db.txt', info)
     return returning_data;
 
 @app.route('/numbersOfDraw', methods=['GET'])
 def getNumbersOfDraws():
     return{
-    'numberOfDraws': get_last_id('database/post_db.txt') -1
+    'numberOfDraws': get_last_id('/home/gandolh/YourDraw/database/post_db.txt') -1
     }
 if __name__ == '__main__':
+    pass
     app.run(debug=True, port=5000)
     # print(get_last_id('database/saveImageForForm.txt'))
