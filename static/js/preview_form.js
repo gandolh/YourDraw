@@ -36,7 +36,7 @@
                 stroke(255,255,255)
                 let resizeCanvasContent=2.5;
                 for(let i=1;i<InstructionList.length;i++)
-                  if(InstructionList[i][2]==1)
+                  if(InstructionList[i][2]>=1)
                     line(
                     InstructionList[i-1][0]*(width/data.width),
                     InstructionList[i-1][1]*(height/data.height),

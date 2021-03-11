@@ -95,8 +95,8 @@ def add_to_db(data):
 def hello():
 
     info = request.get_json()
-    return {'1':info}
     add_to_temp_img(info)
+    return {'1':info}
     return {'Succes': 'yes'}
 
 

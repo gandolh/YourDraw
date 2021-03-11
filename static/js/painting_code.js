@@ -16,7 +16,7 @@ function setup() {
 
 let prevx = -100,
     prevy = -100,
-    pressed = 1;
+    pressed = 0;
 
 function draw() {
     stroke(255);
@@ -25,15 +25,18 @@ function draw() {
         // noStroke()
     if (mouseIsPressed) {
         // ellipse(mouseX, mouseY, Math.min(good_height,good_width)/50);
-        if (prevx == -100) {
+        if (prevx == 0) {
             prevx = mouseX;
             prevy = mouseY;
         }
-        if (valid()) {
+        if (valid() && pressed>1) {
             instructions.push([prevx, prevy, pressed])
             line(prevx, prevy, mouseX, mouseY)
         }
-        pressed = 1;
+        if(pressed==0){
+        	instructions.push(prevx,prevy,0)
+        }
+        pressed++;
     } else {
         pressed = 0;
     }
